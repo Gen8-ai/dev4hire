@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEVS:4:HIRE</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Verdana, sans-serif;
+            background-color: #000;
+            color: #337fef;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1.5rem 0;
+            position: relative;
+            border-bottom: 2px solid #1a428f;
+            box-shadow: 0 2px 15px rgba(51, 127, 239, 0.3);
+        }
+
+        header img {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            background: #fff;
+            border: 0.5rem solid #337fef;
+            margin: 0.2rem;
+            box-shadow: 0 0 20px rgba(51, 127, 239, 0.7);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(51, 127, 239, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(51, 127, 239, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(51, 127, 239, 0);
+            }
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0.7rem 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 0 10px rgba(51, 127, 239, 0.8);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #cccccc;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .navButton {
+            background: linear-gradient(to bottom, #4e8ef7, #337fef);
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .navButton:hover {
+            background: linear-gradient(to bottom, #337fef, #005ecb);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .navButton:active {
+            transform: translateY(1px);
+        }
+
+        /* New welcome section */
+        .welcome-section {
+            padding: 3rem 1rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .welcome-content {
+            background: rgba(17, 17, 17, 0.8);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid #337fef;
+        }
+
+        .welcome-heading {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 8px;
+            min-width: 150px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid #1a428f;
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(51, 127, 239, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4e8ef7;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #cccccc;
+            font-size: 1rem;
+        }
+
+        /* Featured developers section */
+        .featured {
+            padding: 2rem 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .featured-heading {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .dev-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dev-card {
+            background: linear-gradient(145deg, #111, #222);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 280px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(51, 127, 239, 0.3);
+        }
+
+        .dev-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(51, 127, 239, 0.2);
+        }
+
+        .dev-header {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(51, 127, 239, 0.2);
+        }
+
+        .dev-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            border: 3px solid #337fef;
+            object-fit: cover;
+            display: block;
+        }
+
+        .dev-name {
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+            color: #fff;
+        }
+
+        .dev-specialty {
+            color: #4e8ef7;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .dev-info {
+            padding: 1.5rem;
+        }
+
+        .dev-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .dev-stat:last-child {
+            border-bottom: none;
+        }
+
+        .dev-stat-label {
+            color: #aaa;
+        }
+
+        .dev-stat-value {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .hire-button {
+            background: linear-gradient(to right, #337fef, #4e8ef7);
+            color: #fff;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .hire-button:hover {
+            background: linear-gradient(to right, #005ecb, #337fef);
+            box-shadow: 0 5px 15px rgba(51, 127, 239, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #1a428f;
+            background: rgba(10, 10, 10, 0.8);
+        }
+
+        .footer-text {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .stats {
+                gap: 1rem;
+            }
+
+            .stat-item {
+                flex: 1 1 40%;
+                min-width: 120px;
+            }
+
+            .dev-cards {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header id="headerNav">
+            <img src="images/logo.png" alt="Dev 4 Hire Logo" />
+            <h1>DEVS:4:HIRE</h1>
+            <p class="tagline">Connect with elite developers for your next big project</p>
+            <nav>
+                <button id="search" class="navButton" aria-label="Search">Search</button>
+                <button id="cat" class="navButton" aria-label="Categories">Categories</button>
+                <button id="Comp" class="navButton" aria-label="Competition">Competition</button>
+                <button id="knowIt" class="navButton" aria-label="Info">Info</button>
+                <button id="trophy" class="navButton" aria-label="Leaderboards">Leaderboards</button>
+            </nav>
+        </header>
+
+        <section class="welcome-section">
+            <div class="welcome-content">
+                <h2 class="welcome-heading">Find Your Perfect Developer Match</h2>
+                <p>DEVS:4:HIRE connects businesses with top-tier developers across every technology stack and specialty.
+                    Whether you need a full-stack genius, a mobile app wizard, or an AI expert - we've got you covered.
+                </p>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5,280+</div>
+                        <div class="stat-label">Vetted Developers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98.7%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12,400+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">Average Response Time</div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="featured">
+                <h2 class="featured-heading">Featured Developers</h2>
+
+                <div class="dev-cards">
+                    <div class="dev-card">
+                        <div class="dev-header">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson"
+                                class="dev-avatar">
+                            <h3 class="dev-name">Sarah Johnson</h3>
+                            <p class="dev-specialty">Full Stack Developer</p>
+                        </div>
+                        <div class="dev-info">
+                            <div class="dev-stat">
+                                <span class="dev-stat-label">Projects</span>
+                                <span class="dev-stat-value">127</span>
+                            </div>
+                            <div class="dev-stat">
+                                <span class="dev-stat-label">Rating</span>
+                                <span class="dev-stat-value">4.9/5</span>
+                            </div>
+                            <div class="dev-stat">
+                                <span class="dev-stat-label">Response</span>
+                                <span class="dev-stat-value">
+                                    < 2 hours</span>
+                            </div>
+                            <button class="hire-button">View Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="dev-card">
+                        <div class="dev-header">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen"
+                                class="dev-avatar">
+                            <h3 class="dev-name">Michael Chen</h3>
+                            <p class="dev-specialty">Frontend Expert</p>
+                        </div>
+                        <div class="dev-info">
+                            <div class="dev-stat">
+                                <span class="dev-stat-label">Projects</span>
+                                <span class="dev-stat-value">98</span>
+                            </div>
+                            <div class="dev-stat">
+                                <span class="dev-stat-label">Rating</span>
+                                <span class="dev-stat-value">4.8/5</span>
+                            </div>
+                            <div class="dev-stat">
+                                <span class="dev-stat-label">Response</span>
+                                <span class="dev-stat-value">
+                                    < 3 hours</span>
+                            </div>
+                            <button class="hire-button">View Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="dev-card">
+                        <div class="dev-header">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Olivia Rodriguez"
+                                class="dev-avatar">
+                            <h3 class="dev-name">Olivia Rodriguez</h3>
+                            <p class="dev-specialty">Backend Developer</p>
+                        </div>
+                        <div class="dev-info">
+                            <div class="dev-stat">
+                                <span class="dev-stat-label">Projects</span>
+                                <span class="dev-stat-value">115</span>
+                            </div>
+                            <div class="dev-stat">
+                                <span class="dev-stat-label">Rating</span>
+                                <span class="dev-stat-value">4.9/5</span>
+                            </div>
+                            <div class="dev-stat">
+                                <span class="dev-stat-label">Response</span>
+                                <span class="dev-stat-value">Same day</span>
+                            </div>
+                            <button class="hire-button">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text">© 2025 DEVS:4:HIRE | The premier platform for connecting with top development talent</p>
+    </footer>
+
+    <script>
+        const routes = {
+            search: "./routes/search.html",
+            cat: "./routes/categories.html",
+            Comp: "./routes/competition.html",
+            knowIt: "./routes/info.html",
+            trophy: "./routes/leaderboard.html",
+        };
+
+        Object.entries(routes).forEach(([id, url]) => {
+            document.getElementById(id).addEventListener("click", () => {
+                window.location.href = url;
+                console.log('Navigating to ' + url);
+            });
+        });
+
+        console.log("page loaded");
+
+        // Add extra interactive features
+        document.querySelectorAll('.dev-card').forEach(card => {
+            card.querySelector('.hire-button').addEventListener('click', function (e) {
+                e.preventDefault();
+                const devName = card.querySelector('.dev-name').textContent;
+                alert(`You're viewing ${devName}'s profile. In a complete implementation, this would take you to their detailed profile page.`);
+            });
+        });
+    </script>
+</body>
+
+</html>

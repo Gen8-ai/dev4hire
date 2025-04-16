@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categories - DEVS:4:HIRE</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Verdana, sans-serif;
+            background-color: #000;
+            color: #337fef;
+        }
+
+        header {
+            text-align: center;
+            background: transparent;
+            padding: 1rem 0;
+        }
+
+        header img {
+            width: 5rem;
+            height: 5em;
+            border-radius: 3.2rem;
+            background: #fff;
+            border: 0.5rem solid #337fef;
+            margin: 0.2rem;
+        }
+
+        h2 {
+            margin: 0.7rem 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .category-card {
+            background-color: #111;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #337fef;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(51, 127, 239, 0.4);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .category-description {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .view-category {
+            background: #337fef;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .view-category:hover {
+            background: #005ecb;
+        }
+
+        .back-button {
+            background: #337fef;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 1rem;
+            display: block;
+            width: fit-content;
+            margin: 1rem auto;
+        }
+
+        .back-button:hover {
+            background: #005ecb;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="headerNav">
+        <img src="../images/logo.png" alt="Dev 4 Hire Logo" />
+        <h2>DEVS:4:HIRE</h2>
+    </header>
+
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 1.5rem;">Developer Categories</h2>
+
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-icon">💻</div>
+                <div class="category-title">Web Development</div>
+                <div class="category-description">Frontend, Backend, Full Stack developers specializing in web
+                    technologies.</div>
+                <button class="view-category">View Developers</button>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📱</div>
+                <div class="category-title">Mobile Development</div>
+                <div class="category-description">Specialists in iOS, Android, and cross-platform mobile applications.
+                </div>
+                <button class="view-category">View Developers</button>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎮</div>
+                <div class="category-title">Game Development</div>
+                <div class="category-description">Game developers with experience in Unity, Unreal Engine, and more.
+                </div>
+                <button class="view-category">View Developers</button>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🤖</div>
+                <div class="category-title">AI & Machine Learning</div>
+                <div class="category-description">Engineers specializing in artificial intelligence and machine
+                    learning.</div>
+                <button class="view-category">View Developers</button>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🔒</div>
+                <div class="category-title">Cybersecurity</div>
+                <div class="category-description">Security specialists who can protect your applications and data.</div>
+                <button class="view-category">View Developers</button>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">☁️</div>
+                <div class="category-title">Cloud Engineering</div>
+                <div class="category-description">Experts in AWS, Azure, Google Cloud, and DevOps practices.</div>
+                <button class="view-category">View Developers</button>
+            </div>
+        </div>
+
+        <button id="backButton" class="back-button">Back to Home</button>
+    </div>
+
+    <script>
+        document.getElementById("backButton").addEventListener("click", () => {
+            window.location.href = "../index.html";
+        });
+
+        document.querySelectorAll(".view-category").forEach(button => {
+            button.addEventListener("click", function () {
+                const category = this.parentElement.querySelector(".category-title").textContent;
+                window.location.href = `search.html?category=${encodeURIComponent(category)}`;
+            });
+        });
+
+        console.log("categories page loaded");
+    </script>
+</body>
+
+</html>
