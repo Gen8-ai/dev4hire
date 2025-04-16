@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search - DEVS:4:HIRE</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Verdana, sans-serif;
+            background-color: #000;
+            color: #337fef;
+        }
+
+        header {
+            text-align: center;
+            background: transparent;
+            padding: 1rem 0;
+        }
+
+        header img {
+            width: 5rem;
+            height: 5em;
+            border-radius: 3.2rem;
+            background: #fff;
+            border: 0.5rem solid #337fef;
+            margin: 0.2rem;
+        }
+
+        h2 {
+            margin: 0.7rem 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .search-form {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.7rem;
+            border: 2px solid #337fef;
+            border-radius: 0.4rem 0 0 0.4rem;
+            font-size: 1rem;
+            background-color: #111;
+            color: #fff;
+        }
+
+        .search-button {
+            padding: 0 1.5rem;
+            background: #337fef;
+            color: #fff;
+            border: none;
+            border-radius: 0 0.4rem 0.4rem 0;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .search-button:hover {
+            background: #005ecb;
+        }
+
+        .back-button {
+            background: #337fef;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .back-button:hover {
+            background: #005ecb;
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .profile-card {
+            background-color: #111;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #337fef;
+        }
+
+        .profile-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 0.5rem;
+            background-color: #222;
+        }
+
+        .profile-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-skill {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .view-profile {
+            background: #337fef;
+            color: #fff;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            border-radius: 0.3rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="headerNav">
+        <img src="../images/logo.png" alt="Dev 4 Hire Logo" />
+        <h2>DEVS:4:HIRE</h2>
+    </header>
+
+    <div class="container">
+        <form class="search-form">
+            <input type="text" class="search-input" placeholder="Search for developers by skill, name, or location...">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+
+        <div class="results">
+            <div class="profile-card">
+                <div class="profile-image"></div>
+                <div class="profile-name">John Doe</div>
+                <div class="profile-skill">Full Stack Developer</div>
+                <button class="view-profile">View Profile</button>
+            </div>
+            <div class="profile-card">
+                <div class="profile-image"></div>
+                <div class="profile-name">Jane Smith</div>
+                <div class="profile-skill">UX Designer</div>
+                <button class="view-profile">View Profile</button>
+            </div>
+            <div class="profile-card">
+                <div class="profile-image"></div>
+                <div class="profile-name">Mike Johnson</div>
+                <div class="profile-skill">Mobile Developer</div>
+                <button class="view-profile">View Profile</button>
+            </div>
+        </div>
+
+        <button id="backButton" class="back-button">Back to Home</button>
+    </div>
+
+    <script>
+        document.getElementById("backButton").addEventListener("click", () => {
+            window.location.href = "../index.html";
+        });
+
+        console.log("search page loaded");
+    </script>
+</body>
+
+</html>
